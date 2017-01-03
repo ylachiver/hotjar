@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 
-seq = [2, 3, 4]
+class People:
+    def __init__(self, age, name):
+        self.age = age
+        self.name = name
 
-def check_seq_in_array(a):
-   # Convert int array and seq to str
-   # Check if seq str is in int array str
-   int_array_str = ','.join([str(x) for x in a])
-   seq_str = ','.join([str(x) for x in seq])
-   return seq_str in int_array_str
+    def __repr__(self):
+        return '{}: {}'.format(self.name, self.age)
 
 def main():
-  int_array = [1, 2, 3, 4, 6]
-  print check_seq_in_array(int_array)
+    a = People(12, 'a')
+    b = People(54, 'b')
+    c = People(32, 'y')
+
+    l = [a, b, c]
+    l.sort(key=lambda x:x.age)
+
+    print l
 
 if __name__ == '__main__':
     main()
